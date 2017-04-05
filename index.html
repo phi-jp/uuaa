@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      #console {
+        background-color: rgb(50, 50, 60);
+        color: white;
+        padding: 8px;
+      }
+    </style>
+  </head>
+  <body>
+    <pre id='console'></pre>
+    <script src='uuaa.js'></script>
+    <script>
+      window.onload = function() {
+        var str = JSON.stringify(uuaa, null, '  ');
+
+        document.querySelector('#console').innerHTML = str;
+      };
+    </script>
+  </body>
+</html>
