@@ -13,10 +13,11 @@
     };
   })();
   var os = (function() {
-    var name = ua.match(/(Android|iOS|Windows|Mac OS X|CrOS|Firefox)/)[1];
+    var name = ua.match(/(Android|iPhone|iPad|iPod|Windows|Mac OS X|CrOS|Firefox)/)[1];
 
-    if (name === 'CrOS') name = 'Chrome OS';
-    if (name === 'Firefox') name = 'Firefox OS';
+    if (['iPhone', 'iPad', 'iPod'].indexOf(name) !== -1) name = 'iOS';
+    else if (name === 'CrOS') name = 'Chrome OS';
+    else if (name === 'Firefox') name = 'Firefox OS';
 
     return {
       name: name,
@@ -54,10 +55,10 @@
     }
     if (os.name === 'Android') {
       if ('requestFileSystem' in window || 'webkitRequestFileSystem' in window) {
-          return false;
+        return false;
       }
       else {
-          return true;
+        return true;
       }
     }
     else {
