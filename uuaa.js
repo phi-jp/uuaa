@@ -73,6 +73,7 @@
     mobile: mobile,
     standalone: standalone,
     webview: webview,
+    language: nav.language.substr(0, 2),
   };
 
   window.uuaa = uuaa;
