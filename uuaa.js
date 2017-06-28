@@ -66,14 +66,26 @@
     }
   })();
 
+  var service = {
+    name: '',
+  };
+  if (ua.indexOf('Messenger') !== -1) {
+    service.name = 'Messenger';
+  }
+  else if (ua.indexOf('Line') !== -1) {
+    service.name = 'Line';
+  }
+
   var uuaa = {
     device: device,
     os: os,
     browser: browser,
+    service: service,
     mobile: mobile,
     standalone: standalone,
     webview: webview,
     language: nav.language.substr(0, 2),
+    userAgent: ua,
   };
 
   window.uuaa = uuaa;
