@@ -55,7 +55,12 @@
     }
     if (os.name === 'Android') {
       if ('requestFileSystem' in window || 'webkitRequestFileSystem' in window) {
-        return false;
+        if (ua.indexOf('Crosswalk') !== -1) {
+          return true;
+        }
+        else {
+          return false;
+        }
       }
       else {
         return true;
