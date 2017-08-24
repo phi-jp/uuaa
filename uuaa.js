@@ -80,6 +80,9 @@
   else if (ua.indexOf('Line') !== -1) {
     service.name = 'Line';
   }
+  else if (ua.indexOf('FBAN') !== -1) {
+    service.name = 'Facebook';
+  }
 
   var uuaa = {
     device: device,
