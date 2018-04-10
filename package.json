@@ -1,8 +1,8 @@
 {
   "name": "uuaa",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "detect from user agent",
-  "main": "index.js",
+  "main": "uuaa.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
