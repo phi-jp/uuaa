@@ -6,14 +6,14 @@
   var nav = window.navigator;
   var ua = nav.userAgent || '';
   var device = (function() {
-    var name = ua.match(/(Android|iPhone|iPad|iPod|Windows|Mac OS X|PhantomJS)/)[1];
+    var name = ua.match(/(Android|iPhone|iPad|iPod|Windows|Mac OS X|Linux|PhantomJS)/)[1];
 
     return {
       name: name,
     };
   })();
   var os = (function() {
-    var name = ua.match(/(Android|iPhone|iPad|iPod|Windows|Mac OS X|CrOS|Firefox|PhantomJS)/)[1];
+    var name = ua.match(/(Android|iPhone|iPad|iPod|Windows|Mac OS X|CrOS|Linux|Firefox|PhantomJS)/)[1];
 
     if (['iPhone', 'iPad', 'iPod'].indexOf(name) !== -1) name = 'iOS';
     else if (name === 'CrOS') name = 'Chrome OS';
