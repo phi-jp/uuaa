@@ -83,6 +83,9 @@
   else if (ua.indexOf('FBAN') !== -1) {
     service.name = 'Facebook';
   }
+  else if (ua.indexOf('Twitter') !== -1) {
+    service.name = 'Twitter';
+  }
 
   var uuaa = {
     device: device,
