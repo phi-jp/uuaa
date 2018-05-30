@@ -6,14 +6,31 @@
   var nav = window.navigator;
   var ua = nav.userAgent || '';
   var device = (function() {
-    var name = ua.match(/(Android|iPhone|iPad|iPod|Windows|Mac OS X|Linux|PhantomJS)/)[1];
+    // 優先度順にdevice名を配列に入れる
+    var targets = ['Android','iPhone','iPad','iPod','Windows','Mac OS X','Linux','PhantomJS'];
+    var names = ua.match(new RegExp(targets.join('|'), 'g'));
+
+    // userAgentの中で、上記に一致するものを返す
+    // (Android の場合 ["Android", "Linux"] が返ってくる)
+    name = targets.find(function(device) {
+      return names.indexOf(device) !== -1;
+    });
 
     return {
       name: name,
     };
   })();
   var os = (function() {
-    var name = ua.match(/(Android|iPhone|iPad|iPod|Windows|Mac OS X|CrOS|Linux|Firefox|PhantomJS)/)[1];
+    // 優先度順にOS名を配列に入れる
+    var targets = ['Android','iPhone','iPad','iPod','Windows','Mac OS X','CrOS','Linux','Firefox','PhantomJS'];
+
+    // userAgentの中で、上記に一致するものを返す
+    // (Android の場合 ["Android", "Linux"] が返ってくる)
+    var names = ua.match(new RegExp(targets.join('|'), 'g'));
+  
+    var name = targets.find(function(os) {
+      return names.indexOf(os) !== -1;
+    });
 
     if (['iPhone', 'iPad', 'iPod'].indexOf(name) !== -1) name = 'iOS';
     else if (name === 'CrOS') name = 'Chrome OS';
