@@ -8,12 +8,8 @@
   var device = (function() {
     // 優先度順にdevice名を配列に入れる
     var targets = ['Android','iPhone','iPad','iPod','Windows','Mac OS X','Linux','PhantomJS'];
-    var names = ua.match(new RegExp(targets.join('|'), 'g'));
-
-    // userAgentの中で、上記に一致するものを返す
-    // (Android の場合 ["Android", "Linux"] が返ってくる)
-    name = targets.find(function(device) {
-      return names.indexOf(device) !== -1;
+    var name = targets.find(function(target) {
+      return ua.indexOf(target) !== -1;
     });
 
     return {
@@ -24,12 +20,8 @@
     // 優先度順にOS名を配列に入れる
     var targets = ['Android','iPhone','iPad','iPod','Windows','Mac OS X','CrOS','Linux','Firefox','PhantomJS'];
 
-    // userAgentの中で、上記に一致するものを返す
-    // (Android の場合 ["Android", "Linux"] が返ってくる)
-    var names = ua.match(new RegExp(targets.join('|'), 'g'));
-  
-    var name = targets.find(function(os) {
-      return names.indexOf(os) !== -1;
+    var name = targets.find(function(target) {
+      return ua.indexOf(target) !== -1;
     });
 
     if (['iPhone', 'iPad', 'iPod'].indexOf(name) !== -1) name = 'iOS';
