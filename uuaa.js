@@ -14,6 +14,7 @@
 
     return {
       name: name,
+      key: name.replace(/\s+/g, '_').toLowerCase(),
     };
   })();
   var os = (function() {
@@ -30,6 +31,7 @@
 
     return {
       name: name,
+      key: name.replace(/\s+/g, '_').toLowerCase(),
     };
   })();
   var browser = (function() {
@@ -45,6 +47,7 @@
 
     return {
       name: name,
+      key: name.replace(/\s+/g, '_').toLowerCase(),
     };
   })();
   var mobile = (function() {
