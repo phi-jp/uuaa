@@ -80,6 +80,8 @@
     }
   })();
 
+  var cordova = ua.indexOf('cordova') !== -1;
+
   var service = {
     name: '',
   };
@@ -104,6 +106,7 @@
     mobile: mobile,
     standalone: standalone,
     webview: webview,
+    cordova: cordova,
     language: nav.language.substr(0, 2),
     userAgent: ua,
   };
